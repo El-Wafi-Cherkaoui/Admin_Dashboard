@@ -218,7 +218,7 @@ li:hover{
 .projects div:hover h5{
     color: #1da1f2;
 }
-.announcements{
+.announcements, .trending{
     padding: 4vh 2vw 1vh;
     background-color: aliceblue;
     border-radius: 1vw;
@@ -250,6 +250,8 @@ li:hover{
     gap: 1vh;
     grid-template-rows: repeat(auto-fit, minmax(50px, 60px));
     align-items: center;
+    height: fit-content;
+    padding-bottom: 5vh;
 }
 .trending div{
     display: grid;
