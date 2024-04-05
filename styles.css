@@ -4,7 +4,7 @@
     box-sizing: border-box;
     list-style: none;
 
-    /* border: 1px solid; */
+    /* border: 1px solid; *zz/
     /* overflow: hidden; */
 }
 body{
@@ -22,12 +22,18 @@ body{
     gap: minmax(0vh , 6vh) ;
     background-color: #1da1f2;
     overflow: scroll;
-    /* color: aliceblue; */
+    color: aliceblue;
+    border-top-left-radius: 2vw;
+    border-bottom-left-radius: 2vw;
 }
 .sideH{
     display: grid;
-    grid-template-columns: 1fr 6fr;
+    grid-template-columns: auto auto;
     align-items: center;
+    gap: 1vw;
+    justify-content: start;
+    align-items: center;
+    padding: 0vw 2vw 0vw 0vw;
 }
 .sideH > img{
     width: 2.8rem;
@@ -42,26 +48,82 @@ li{
     gap: 1vw;
     grid-template-columns:auto 1fr;
     align-items: center;
+    cursor: pointer;
+    transition: all .5s;
+}
+li:hover{
+    font-weight: bold;
+    margin-left: 1vw;
 }
 .container{
-    overflow: hidden;
-    padding: 0vh 1vw;
+    overflow: scroll;
     display: grid;
     grid-template-rows: auto auto 1fr;
+    background-color: rgb(175, 221, 221);
+    border-top-right-radius: 2vw;
+    border-bottom-right-radius: 2vw;
 }
 .header, .bio{
     padding: 1vw;
+    background-color: #fff;
 }
 .header{
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
-    gap: 1vw;    
+    gap: 1vw;
+}
+.header input{
+    width: 80%;
+    margin-left: 1.5vw;
+    justify-self: start;
+    padding: .5vw 1vw;
+    outline: none;
+    border-radius: 2vw;
+    border: none;
+    background-color:  rgb(67, 211, 255);
+    box-shadow: 0vw 0vw .2vw #1da1f2;
+    transition: all 1s;
+    font-weight: bold;
+    opacity: .5;
+}
+.header input:focus{
+    opacity: 1;
+
 }
 .options{
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 1vw;
+    align-items: center;
+    font-weight: bold;
+}
+.options > *{
+    cursor: pointer;
+}
+.options img:nth-child(1){
+    width: 35px;
+    padding: .4vw;
+    transition: all .5s ease-in-out ;
+    border-radius: 2vw;
+    color: #1da1f2;
+    border: .2vw solid #1da0f200;
+}
+.options img:nth-child(1):hover{
+    border-color:  black;
+    box-shadow: 0.1vw 0.2vw .1vw black;
+}
+.options img:nth-child(2){
+    width: 35px;
+    border: .2vw solid #1da0f200;
+    border-radius: 2vw;
+    transition: all .5s ease-in-out;
+    height: 35px;
+}
+.options img:nth-child(2):hover{
+    width: 35px;
+    border-color: black;
+    box-shadow: 0vw 0.5vh .1vw black;
 }
 .bio{
     display: grid;
@@ -69,6 +131,7 @@ li{
     grid-template-rows: 1fr;
     align-items: end;
     height: fit-content;
+    box-shadow: 0.1vh 1vh .5vh rgba(0, 0, 0, 0.301);
 }
 .me{
     display: grid;
@@ -76,10 +139,12 @@ li{
     grid-template-rows: 1fr;
     column-gap: 1vw;
     align-items: center;
+    padding-left: 2vw;
 }
 .me img{
     width: 5vw;
     grid-row: 1/3;
+    border-radius: 2vw;
 }
 .me div{
 }
@@ -91,9 +156,13 @@ li{
 }
 .buttons{
     justify-self: end;
+    align-self:center;
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 1.5vw;
+}
+.buttons > *{
+    cursor: pointer;
 }
 .buttons button{
     padding: .8vh 1.5vw;
@@ -106,22 +175,105 @@ li{
     height: fit-content;
     width: fit-content;
     align-self: flex-end;
+    border: .1vh solid transparent;
+    transition: all .6s;
+}
+.buttons button:hover{
+    background-color: aliceblue;
+    color: #1da1f2;
+    border-color: #1da1f2;
+    box-shadow: .1vh .4vw .1vw ;
 }
 .content{
     display: grid;
     grid-template-columns: 7fr 3fr;
     grid-template-rows: auto auto 1fr;
-    padding-top: 5vh;
+
+    padding: 2vw;
+    gap: 1vw;
 }
 .projects{
-    padding: 4vw;
+    padding: 0vw;
     grid-row: 2/4;
     display: grid;
     width: 100%;
     row-gap: 2vh;
     column-gap: 2vw;
-    grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
+    grid-template-columns: repeat(2, minmax(20ch, 1fr));
     
-    overflow:scroll;
-    height: 55vh;
+    height: 100%;
+}
+.projects div{
+    border-radius: 1vw;
+    padding: 2vw;
+    border-left: .6vw orange solid;
+    background-color: aliceblue;
+    transition: transform 1s;
+    cursor: pointer;
+}
+.projects div:hover{
+    border-color: #1da1f2;
+    transform: scale(1.05);
+}
+.projects div:hover h5{
+    color: #1da1f2;
+}
+.announcements{
+    padding: 4vh 2vw 1vh;
+    background-color: aliceblue;
+    border-radius: 1vw;
+}
+.announcements div{
+    padding-bottom: 3vh ;
+    width: fit-content;
+    opacity: .8;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+}
+.announcements div:hover{
+    opacity: 1;
+    transform: translateX(2%);
+}
+.announcements div:not(:first-child){
+    border-top: .1vh solid rgba(128, 128, 128, 0.678);
+    padding-top: 3vh;
+}
+.announcements div h5{
+    font-size: 5rem;
+}
+.announcements div p{
+    font-size: .7rem;
+    opacity: .8;
+}
+.trending{
+    display: grid;
+    gap: 1vh;
+    grid-template-rows: repeat(auto-fit, minmax(50px, 60px));
+    align-items: center;
+}
+.trending div{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    opacity: .8;
+    transition: all .5s;
+    cursor: pointer;
+}
+.trending div:hover{
+    opacity: 1;
+    transform: translateX(5%);
+}
+.trending div img{
+    grid-column: 1;
+    grid-row: 1/3;
+    justify-self: center;
+    width: 40px;
+    border-radius: 2vw;
+}
+.trending div span:nth-of-type(1){
+    grid-column: 2;
+}
+.trending div span:nth-of-type(2){
+    grid-column: 2;
 }
